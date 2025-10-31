@@ -19,8 +19,8 @@ DATE_STR = datetime.now().strftime('%m%d%Y')
 QUERY = "Query.sql"
 OUTPUT = f"QueryResult{DATE_STR}.csv"
 DRIVER = "ODBC Driver 17 for SQL Server"
-SERVER = "PLACEHOLDER"
-DATABASE = "PLACEHOLDER"
+SERVER = "YOUR_SERVER_NAME"
+DATABASE = "YOUR_DATABASE_NAME"
 CONNECTION = (
     f"Driver={DRIVER};"
     f"Server={SERVER}; "
@@ -300,5 +300,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
