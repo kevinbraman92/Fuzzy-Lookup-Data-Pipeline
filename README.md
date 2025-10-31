@@ -1,5 +1,7 @@
 🧠 Fuzzy Lookup Data Pipeline
 
+---
+
 📖 Overview
 
 This project automates the entire Fuzzy Lookup process used in operational data matching and cleansing.
@@ -7,11 +9,15 @@ It demonstrates my ability to build end-to-end ETL pipelines in Python for real-
 
 The code in this repository is a sanitized, non-confidential example adapted from my professional work at Datavant for demonstration purposes.
 
+---
+
 ⚙️ Project Description
 
 The Fuzzy Lookup Data Pipeline is an automated ETL process written in Python, leveraging pandas and RapidFuzz to extract, clean, and standardize over 100 K rows of operational data from Microsoft SQL Server.
 
 It replaces a 30-step manual reporting workflow with a two-step automated solution, drastically reducing human effort, error rates, and turnaround time for recurring data reconciliation and reporting tasks.
+
+---
 
 🧩 Key Features
 
@@ -25,6 +31,8 @@ It replaces a 30-step manual reporting workflow with a two-step automated soluti
 
 🕒 Efficiency Gains: Reduced manual workload from hours to minutes while improving consistency and traceability.
 
+---
+
 🧠 Technical Stack
 Component	Technology
 Programming Language	Python 3
@@ -32,6 +40,8 @@ Data Libraries	pandas · RapidFuzz · NumPy
 Database	Microsoft SQL Server
 Output	Excel / CSV Reports
 Version Control	Git · GitHub
+
+---
 
 🧾 Example Workflow
 
@@ -43,6 +53,8 @@ Fuzzy Match: Apply RapidFuzz ratio scoring to link similar records between table
 
 Export: Save matched and unmatched datasets into Excel/CSV reports for auditing.
 
+---
+
 📈 Outcomes
 
 Decreased reporting cycle from ~3 hours to under 10 minutes.
@@ -50,6 +62,8 @@ Decreased reporting cycle from ~3 hours to under 10 minutes.
 Reduced error rates and improved data integrity through automated validation.
 
 Provided a reusable Python framework adaptable for other matching and ETL use cases.
+
+---
 
 🧠 Learning Takeaways
 
@@ -63,6 +77,8 @@ Using pandas for transformation and quality control
 
 Writing clean, documented, and reproducible data-engineering code
 
+---
+
 📬 Contact
 
 Kevin Braman
@@ -71,5 +87,7 @@ Kevin Braman
 💼 LinkedIn
 
 💻 GitHub
+
+---
 
 ⭐ If you found this repository useful or inspiring, consider giving it a star!
