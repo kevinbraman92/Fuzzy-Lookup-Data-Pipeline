@@ -1,45 +1,69 @@
-# 🧠 Fuzzy Lookup Data Pipeline  
+# 🧠 Streamlined Fuzzy Lookup ETL Pipeline  
 
 ## 📖 Overview  
-This project automates the **entire Fuzzy Lookup process** used in operational data matching and cleansing.  
-It demonstrates my ability to build **end-to-end ETL pipelines** in **Python** for real-world data engineering workflows.  
+This project automates an **end-to-end data reconciliation workflow** using **Python**, **pandas**, and **RapidFuzz**.  
+It connects directly to **Microsoft SQL Server**, cleans and normalizes address data, performs **fuzzy address matching** against ROI tables, and outputs tiered Excel reports ranked by similarity scores.  
 
-The code in this repository is a **sanitized, non-confidential example** adapted from my professional work at *Datavant* for demonstration purposes.  
-
----
-
-## ⚙️ Project Description  
-The **Fuzzy Lookup Data Pipeline** is an automated ETL process written in **Python**, leveraging **pandas** and **RapidFuzz** to extract, clean, and standardize over **100 K rows of operational data** from **Microsoft SQL Server**.  
-
-It replaces a **30-step manual reporting workflow** with a **two-step automated solution**, drastically reducing human effort, error rates, and turnaround time for recurring data reconciliation and reporting tasks.  
+This repository serves as a **demonstration of professional ETL automation** and data quality management using fuzzy logic and efficient vectorized computation.  
 
 ---
 
-## 🧩 Key Features  
-- 🔄 **Automated ETL Pipeline:** Extracts, transforms, and loads SQL Server data with no manual intervention.  
-- 🧹 **Data Standardization:** Cleans and normalizes raw fields using **pandas** string methods and custom logic.  
-- 🤝 **Fuzzy Matching with RapidFuzz:** Matches similar records across datasets using configurable similarity thresholds.  
-- 📊 **Validation & Reporting:** Generates summary reports highlighting duplicates, mismatches, and confidence scores.  
-- 🕒 **Efficiency Gains:** Reduced manual workload from hours to minutes while improving consistency and traceability.  
+## ⚙️ Key Features  
+- 🔌 **Direct SQL Server Integration** – Connects using `pyodbc` and `SQLAlchemy` for automated data extraction.  
+- 🧹 **Data Cleansing and Normalization** – Cleans inconsistent addresses, ZIP codes, and region mappings using robust validation logic.  
+- 🧩 **Fuzzy Matching Engine** – Uses `RapidFuzz` for address similarity scoring with adjustable thresholds (≥95%, 90–94%, 85–89%).  
+- 📊 **Automated Excel Reporting** – Exports three categorized sheets (`Match_95_and_Above`, `Match_90_to_94`, `Match_85_to_89`) in a single Excel workbook.  
+- 🔍 **Difference Classification** – Highlights differences between strings and classifies errors as *1 Letter Off*, *2 Letters Off*, or *Numerical*.  
+- 🗺️ **Regional Assignment Logic** – Automatically inserts regional ownership data based on subregion mapping.  
+- ⏱️ **Performance Optimized** – Replaces a multi-hour manual reconciliation process with a single automated Python execution (~minutes).  
 
 ---
 
 ## 🧠 Technical Stack  
-| Component | Technology |
-|------------|-------------|
-| Programming Language | Python 3 |
-| Data Libraries | pandas · RapidFuzz · NumPy |
+| Category | Tools / Libraries |
+|-----------|--------------------|
+| Language | Python 3 |
 | Database | Microsoft SQL Server |
-| Output | Excel / CSV Reports |
-| Version Control | Git · GitHub |
+| Libraries | pandas, RapidFuzz, openpyxl, SQLAlchemy, pyodbc, re, difflib |
+| Output | Excel (multi-sheet), CSV |
+| OS Tested | Windows 10+ |
 
 ---
 
-## 🧾 Example Workflow  
-1. **Extract:** Connect to SQL Server and retrieve operational data tables.  
-2. **Transform:** Cleanse, reformat, and standardize columns (names, phone numbers, IDs).  
-3. **Fuzzy Match:** Apply RapidFuzz ratio scoring to link similar records between tables.  
-4. **Export:** Save matched and unmatched datasets into Excel/CSV reports for auditing.  
+## 🧾 Process Flow  
+1. **Extract:**  
+   - Connects to SQL Server via trusted connection  
+   - Executes a `.sql` query from `/query/Query.sql`  
+   - Loads results into a pandas DataFrame  
+
+2. **Transform:**  
+   - Cleans and reformats address and ZIP columns  
+   - Adds “Regional Assignment” column from a subregion-to-owner mapping  
+   - Merges data with ROI tables for address enrichment and SHCODE lookup  
+
+3. **Fuzzy Match:**  
+   - Compares extracted addresses with ROI table addresses using RapidFuzz similarity ratios  
+   - Validates ZIP code similarity (>85%)  
+   - Classifies differences using `difflib.Differ`  
+
+4. **Load (Export):**  
+   - Saves results into an Excel workbook named `FuzzyMMDDYYYY.xlsx`  
+   - Organizes matches into three confidence tiers  
+
+---
+
+## 📈 Example Output
+| Sheet Name | Match Range | Description |
+|-------------|-------------|-------------|
+| `Match_95_and_Above` | ≥ 95% | High-confidence address matches |
+| `Match_90_to_94` | 90–94% | Moderate confidence matches |
+| `Match_85_to_89` | 85–89% | Low confidence matches requiring manual review |
+
+Each record includes:
+- Matched address  
+- ZIP validation result  
+- Difference classification (1 Letter Off, 2 Letters Off, etc.)  
+- Regional assignment and Outreach ID  
 
 ---
 
@@ -50,12 +74,13 @@ It replaces a **30-step manual reporting workflow** with a **two-step automated 
 
 ---
 
-## 🧠 Learning Takeaways  
-Through this project, I strengthened my skills in:
-- Building maintainable **ETL pipelines** in Python  
-- Implementing **fuzzy matching algorithms** for data reconciliation  
-- Using **pandas** for transformation and quality control  
-- Writing **clean, documented, and reproducible** data-engineering code  
+## 🧠 Learning Outcomes  
+Through this project, I demonstrated:
+- Building a complete **ETL pipeline** in Python  
+- Applying **fuzzy logic algorithms** for data reconciliation  
+- Using **SQLAlchemy** and `pyodbc` for enterprise-grade data access  
+- Designing a scalable export process for large data sets  
+- Writing clear, modular code with reproducible results  
 
 ---
 
@@ -63,9 +88,10 @@ Through this project, I strengthened my skills in:
 **Kevin Braman**  
 📧 [kevinbraman92@gmail.com](mailto:kevinbraman92@gmail.com)  
 💼 [LinkedIn](https://www.linkedin.com/in/kevin-braman-a7974a129/)  
-💻 [GitHub](https://github.com/kevinbraman92)  
+💻 [GitHub](https://github.com/kevinbraman92)
 
 ---
 
-⭐ *If you found this repository useful or inspiring, consider giving it a star!*
+⭐ *If this project inspires you or helps your workflow, consider giving it a star!*
+
 
