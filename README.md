@@ -79,15 +79,12 @@ Writing clean, documented, and reproducible data-engineering code
 
 ---
 
-📬 Contact
-
-Kevin Braman
-📧 kevinbraman92@gmail.com
-
-💼 LinkedIn
-
-💻 GitHub
+## 📬 Contact
+**Kevin Braman**  
+📧 [kevinbraman92@gmail.com](mailto:kevinbraman92@gmail.com)  
+💼 [LinkedIn](https://www.linkedin.com/in/kevin-braman-a7974a129/)  
+💻 [GitHub](https://github.com/kevinbraman92)
 
 ---
 
-⭐ If you found this repository useful or inspiring, consider giving it a star!
+⭐ *If you found this project helpful or inspiring, consider starring the repository!*
